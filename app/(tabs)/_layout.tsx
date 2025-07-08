@@ -1,4 +1,4 @@
-import { IconSymbol } from "@/components/ui/IconSymbol";
+import { MaterialCommunityIcons } from "@expo/vector-icons"; // ✅ Import nouvelle librairie d’icônes
 import { Tabs } from "expo-router";
 import React from "react";
 import { Platform } from "react-native";
@@ -12,7 +12,7 @@ export default function TabLayout() {
         tabBarStyle: {
           backgroundColor: "#000", // ton fond personnalisé
           paddingBottom: Platform.OS === "ios" ? 20 : 10,
-          paddingTop: 10,
+          paddingTop: 6,
           height: Platform.OS === "ios" ? 80 : 60,
           position: "absolute",
           borderRadius: 20,
@@ -23,6 +23,7 @@ export default function TabLayout() {
           shadowOpacity: 0.1,
           shadowOffset: { width: 0, height: -2 },
           shadowRadius: 10,
+          bottom: 50,
         },
         tabBarLabelStyle: {
           fontSize: 12,
@@ -36,18 +37,26 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Accueil",
+          title: "Save",
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={26} name="house.fill" color={color} />
+            <MaterialCommunityIcons
+              name="content-save"
+              size={26}
+              color={color}
+            />
           ),
         }}
       />
       <Tabs.Screen
         name="explore"
         options={{
-          title: "Explorer",
+          title: "Contacts",
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={26} name="paperplane.fill" color={color} />
+            <MaterialCommunityIcons
+              name="account-group"
+              size={26}
+              color={color}
+            />
           ),
         }}
       />
